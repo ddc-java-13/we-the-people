@@ -7,12 +7,9 @@ titles_from_headings:
   enabled: false
 
 # Modify the contents below for the specific project.
-
 title: "WeThePeople"
 description: "Centralize Laws and Notification of New bills"
-
-author: "Dagoberto Garcoa"
+author: "Dagoberto Garcia"
 name: "Dagoberto Garcia"
-
 # Do not change the following line.
   copyright: true
