@@ -20,11 +20,9 @@ Laws should be mainstream knowledge not hidden and more exposure is a good way t
 * Notify users of specific changes from state to state^
 ## Persistent data
 
-List, in general terms and using a bullet list, what content will be stored on the Android device. This should include any information that users of your app would expect to be maintained (i.e. without connection to a server) across multiple sessions of use. 
 * Tags of specific interest
 ## Device/external services
 
-If the client component will need to access special services of the device (e.g. sensors, contacts, messaging), list them here using a bullet list. Also, if the client component will need to access already-existing external services (e.g. real-time weather data, Open Movie Database, Open Trivia Database), those should also be listed here; any such references to external services should include links to the main page or API description page for the service.
 * Location
 * [Law Library of Congress](https://www.loc.gov/)
 * (Possibly) GPS
