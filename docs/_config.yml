@@ -9,7 +9,7 @@ titles_from_headings:
 # Modify the contents below for the specific project.
 title: "WeThePeople"
 description: "Centralize Laws and Notification of New bills"
-author: "Dagoberto Garcia"
-name: "Dagoberto Garcia"
+author:
+name:
 # Do not change the following line.
   copyright: true
