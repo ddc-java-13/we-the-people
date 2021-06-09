@@ -1,6 +1,6 @@
 ## Summary
 
-An application that will simplify, organize, and indicate new laws and bills, while clarifying legal user interface. Posses the ability to organize with tags and location. Will notify user of user specified bills and new legislation.     
+An application that will simplify, organize, and indicate new laws and bills. Posses the ability to organize with tags and location. Will notify user of user specified bills and new legislation.     
 ## Intended users
 
 Most Government websites are intimidating, the goal of this application is to make an approachable, inviting User Interface. 
