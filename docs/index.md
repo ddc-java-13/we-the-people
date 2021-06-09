@@ -1,31 +1,35 @@
 ## Summary
 
-Intention of the application is to search through current laws and regulations. While also notifying users to new bills from local up to federal.
+An application that will simplify, organize, and indicate new laws and bills, while clarifying legal user interface. Posses the ability to organize with tags and location. Will notify user of user specified bills and new legislation.     
 ## Intended users
 
-For individuals who intend on learning about government laws and see what local bills and the contents of those bills are.
+Most Government websites are intimidating, the goal of this application is to make an approachable, inviting User Interface. 
 
-> Citizens should have much easier access to laws and be notified of new bills that might effect them
+> Citizens should have simple access to laws and be notified of new bills on every level of Government.
 
-Laws should be mainstream knowledge not hidden and more exposure is a good way to change political climate and ensure real change
+The intended purpose of this application is to educate citizens of local, state, and federal laws.
 
->  As a citizen I am tired of not knowing what is going on in the country and I would benefit in knowing more about the country I live in. Having knowledge is the most powerful thing to happen.
+> Most citizens don't know what congress is pushing in legislation, education will help the public understand verbiage and provide insight to our legal system.
 
 
 ## Functionality
 
-* Notify users of chosen criteria change or new bill that they show intrest in
-* Laws that might interest them through tags 
-* Search specific states  to protect ones self
-* Notify users of specific changes from state to state^
+* Notify users of specified change, or a new bill that is introduced.
+* Law search through keywords.
+* Search specific states.
+
 ## Persistent data
 
 * Tags of specific interest
 ## Device/external services
 
-* Location
-* [Law Library of Congress](https://www.loc.gov/)
-* (Possibly) GPS
+* [Law Library of Congress](https://catalog.gpo.gov/fdlpdir/)
+* [State Laws](https://catalog.gpo.gov/fdlpdir/)
+* [Bills](https://catalog.gpo.gov/fdlpdir/)
+
 
 ## Stretch goals/possible enhancements 
 * Notify User of possible Law Changes across state lines 
+* Location
+* Share Function
+* Notify users of specific changes from state to state^
