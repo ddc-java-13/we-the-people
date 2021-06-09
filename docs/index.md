@@ -21,6 +21,8 @@ The intended purpose of this application is to educate citizens of local, state,
 ## Persistent data
 
 * Tags of specific interest
+
+
 ## Device/external services
 
 * [Law Library of Congress](https://catalog.gpo.gov/fdlpdir/)
