@@ -24,7 +24,8 @@ Introduce an application that will simplify, organize, and indicate new laws and
 ## Persistent data
 
 * Tags of specific interest
-* Tag specific laws 
+* References to specific laws 
+* References to specific Bills
 
 
 ## Device/external services
