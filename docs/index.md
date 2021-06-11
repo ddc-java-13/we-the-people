@@ -18,8 +18,7 @@ Introduce an application that will simplify, organize, and indicate new laws and
 * Notify users of specified change, or a new bill that is introduced.
 * Law search through keywords.
 * Search specific states.
-* The purpose of this application is to educate citizens of local, state, and federal laws.
-* Introduce civics to more people.
+
 
 ## Persistent data
 
