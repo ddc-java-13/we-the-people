@@ -6,11 +6,11 @@ Introduce an application that will simplify, organize, and indicate new laws and
 
 * Citizens who want to be well-informed 
 
-> As a civic-minded citizen who wants to be better-informed about bills under consideration, I want to be able to browse and search the current congressional docket, so that I can participate in the process and communicate my feelings and concerns to my representatives.
+    > As a civic-minded citizen who wants to be better-informed about bills under consideration, I want to be able to browse and search the current congressional docket, so that I can participate in the process and communicate my feelings and concerns to my representatives.
 
-* A lawyer who wants to search laws and bills who can use a localized 
+* Lawyers who want to search a bill and laws.
 
-> This app can also be used by the legal community for a quick reference, Or tagging specified laws with the lawyers' specialty. 
+    > As a Lawyer, who needs to stay current with upcoming bills, I want to be notified of new changes that effect my specialty in law, so I can better serve the community.   
 
 
 ## Functionality
