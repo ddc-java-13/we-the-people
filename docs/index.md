@@ -1,15 +1,16 @@
 ## Summary
+ 
+Introduce an application that will simplify, organize, and indicate new laws and bills. Posses the ability to organize with tags and location. Will notify user of user specified bills and new legislation.
 
-An application that will simplify, organize, and indicate new laws and bills. Posses the ability to organize with tags and location. Will notify user of user specified bills and new legislation.     
 ## Intended users
 
-Most Government websites are intimidating, the goal of this application is to make an approachable, inviting User Interface. 
+* Citizens who want to be well-informed 
 
-> Citizens should have simple access to laws and be notified of new bills on every level of Government.
+> As a civic-minded citizen who wants to be better-informed about bills under consideration, I want to be able to browse and search the current congressional docket, so that I can participate in the process and communicate my feelings and concerns to my representatives.
 
-The intended purpose of this application is to educate citizens of local, state, and federal laws.
+* A lawyer who wants to search laws and bills who can use a localized 
 
-> Most citizens don't know what congress is pushing in legislation, education will help the public understand verbiage and provide insight to our legal system.
+> This app can also be used by the legal community for a quick reference, Or tagging specified laws with the lawyers' specialty. 
 
 
 ## Functionality
@@ -17,10 +18,13 @@ The intended purpose of this application is to educate citizens of local, state,
 * Notify users of specified change, or a new bill that is introduced.
 * Law search through keywords.
 * Search specific states.
+* The purpose of this application is to educate citizens of local, state, and federal laws.
+* Introduce civics to more people.
 
 ## Persistent data
 
 * Tags of specific interest
+* Tag specific laws 
 
 
 ## Device/external services
