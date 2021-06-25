@@ -1,7 +1,7 @@
 ---
-title: We The People
+title:
 subtitle: "An app idea"
-menu: ERD
+menu: We The People
 order: 10
 ---
 
