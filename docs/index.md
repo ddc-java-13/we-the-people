@@ -1,3 +1,10 @@
+---
+title: ERD
+subtitle: " entity relationship diagram"
+menu: ERD
+order: 10
+---
+
 ## Summary
  
 Introduce an application that will simplify, organize, and indicate new laws and bills. Posses the ability to organize with tags and location. Will notify user of user specified bills and new legislation.
