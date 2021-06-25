@@ -29,7 +29,7 @@ Introduce an application that will simplify, organize, and indicate new laws and
 
 ## Device/external services
 
-* [Law Library of Congress](https://catalog.gpo.gov/fdlpdir/)
+* [Current Federal Laws & Regulation](https://open.gsa.gov/api/regulationsgov/)
 * [State Laws](https://catalog.gpo.gov/fdlpdir/)
 * [Bills](https://catalog.gpo.gov/fdlpdir/)
 

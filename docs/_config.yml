@@ -2,9 +2,9 @@ remote_theme: ddc-java/ddc-day
 repository_links:
   enabled: false
 page_navigator:
-  enabled: false
+  enabled: true
 titles_from_headings:
-  enabled: false
+  enabled: true
 
 # Modify the contents below for the specific project.
 
