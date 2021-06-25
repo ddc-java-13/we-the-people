@@ -1,5 +1,5 @@
 ---
-subtitle: "An app idea"
+"An app idea"
 menu: We The People
 order: 10
 ---
