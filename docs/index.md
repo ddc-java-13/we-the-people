@@ -1,6 +1,6 @@
 ---
-title: ERD
-subtitle: " entity relationship diagram"
+title: We The People
+subtitle: "An app idea"
 menu: ERD
 order: 10
 ---
