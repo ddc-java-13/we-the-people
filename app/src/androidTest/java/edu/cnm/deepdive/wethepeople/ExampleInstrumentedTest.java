@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.fairplay;
+package edu.cnm.deepdive.wethepeople;
 
 import android.content.Context;
 import androidx.test.platform.app.InstrumentationRegistry;
