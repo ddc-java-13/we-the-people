@@ -8,7 +8,9 @@ import androidx.room.TypeConverter;
 import java.util.Date;
 
 
-@Entity
+@Entity(
+    tableName = "law_or_bill"
+)
 public class LawOrBill {
 
   @PrimaryKey(autoGenerate = true)
