@@ -1,3 +1,10 @@
+---
+title: Entity Relationship Diagram
+subtitle: "Relationship diagram between data entities"
+menu: ERD
+order: 60
+---
+
 ```sqlite
 CREATE TABLE IF NOT EXISTS `law_or_bill`
 (
