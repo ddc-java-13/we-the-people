@@ -1,7 +1,7 @@
 ---
 title: Entity Relationship Diagram
 subtitle: "Relationship diagram between data entities"
-menu: ddl
+menu: DDL
 order: 60
 ---
 
