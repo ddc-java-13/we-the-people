@@ -1,4 +1,4 @@
-remote_theme:
+remote_theme: ddc-java/ddc-day
 repository_links:
   enabled: false
 page_navigator:
@@ -19,4 +19,4 @@ author:
 # Do not change the following line.
   copyright: true
 
-theme: jekyll-theme-midnight
+theme:
