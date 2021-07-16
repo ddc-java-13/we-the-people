@@ -1,0 +1,111 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "7f578d9abdc0dbb29fcd183cd9198680",
+    "entities": [
+      {
+        "tableName": "law_or_bill",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`law_or_bill_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `external_key` TEXT NOT NULL, `creation_date` INTEGER NOT NULL, `author` TEXT NOT NULL COLLATE NOCASE, `agency` TEXT NOT NULL COLLATE NOCASE, `signers` TEXT NOT NULL COLLATE NOCASE, `type` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "law_or_bill_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "externalKey",
+            "columnName": "external_key",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "creationDate",
+            "columnName": "creation_date",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "author",
+            "columnName": "author",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "agency",
+            "columnName": "agency",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "signers",
+            "columnName": "signers",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "law_or_bill_id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_law_or_bill_creation_date",
+            "unique": false,
+            "columnNames": [
+              "creation_date"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_law_or_bill_creation_date` ON `${TABLE_NAME}` (`creation_date`)"
+          },
+          {
+            "name": "index_law_or_bill_author",
+            "unique": false,
+            "columnNames": [
+              "author"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_law_or_bill_author` ON `${TABLE_NAME}` (`author`)"
+          },
+          {
+            "name": "index_law_or_bill_agency",
+            "unique": false,
+            "columnNames": [
+              "agency"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_law_or_bill_agency` ON `${TABLE_NAME}` (`agency`)"
+          },
+          {
+            "name": "index_law_or_bill_signers",
+            "unique": false,
+            "columnNames": [
+              "signers"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_law_or_bill_signers` ON `${TABLE_NAME}` (`signers`)"
+          },
+          {
+            "name": "index_law_or_bill_type",
+            "unique": false,
+            "columnNames": [
+              "type"
+            ],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_law_or_bill_type` ON `${TABLE_NAME}` (`type`)"
+          }
+        ],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '7f578d9abdc0dbb29fcd183cd9198680')"
+    ]
+  }
+}

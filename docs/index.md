@@ -36,9 +36,9 @@ Introduce an application that will simplify, organize, and indicate new laws and
 
 ## Device/external services
 
-* [Current Federal Laws & Regulation](https://open.gsa.gov/api/regulationsgov/)
-* [State Laws](https://catalog.gpo.gov/fdlpdir/)
-* [Bills](https://catalog.gpo.gov/fdlpdir/)
+* [Current Federal Laws & Regulation](https://data.gov)
+* [State Laws](https://www.nmlegis.gov/)
+* [Bills](https://api.govinfo.gov/docs/)
 
 
 ## Stretch goals/possible enhancements 
@@ -47,3 +47,10 @@ Introduce an application that will simplify, organize, and indicate new laws and
 * Share Function
 * Notify users of specific changes from state to state^
 * "law of The Day" a random did you "know" about a law. 
+
+## Easy Links 
+[`ddl.sql`](sql/ddl.sql)
+
+[ERD](img/erd.png)
+
+[Wireframe Diagram](img/WeThePeopleWireFrame.png)
