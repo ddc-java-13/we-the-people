@@ -48,8 +48,12 @@ Introduce an application that will simplify, organize, and indicate new laws and
 * Notify users of specific changes from state to state^
 * "law of The Day" a random did you "know" about a law. 
 
-## Easy Links 
+## DDL
+
 [`ddl.sql`](sql/ddl.sql)
+
+## Easy Links 
+[Git Hub for Project](https://github.com/ddc-java-13/we-the-people)
 
 [ERD](img/erd.png)
 
