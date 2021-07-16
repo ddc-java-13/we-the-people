@@ -20,3 +20,4 @@ author:
   copyright: true
 
 theme:
+theme: jekyll-theme-midnight
