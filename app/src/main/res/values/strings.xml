@@ -4,7 +4,7 @@
   <string name="tab_text_1">Tab 1</string>
   <string name="tab_text_2">Tab 2</string>
   <string name="title_activity_home_page">HomePage</string>
-  <string name="title_activity_home_screen">MainActivity</string>
+  <string name="title_activity_home_screen">WeThePeople</string>
   <string name="title_home">Home</string>
   <string name="title_saved">Saved</string>
   <string name="title_search">Search</string>

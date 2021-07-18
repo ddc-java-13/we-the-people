@@ -6,7 +6,7 @@ android {
     compileSdkVersion = 30
 
     defaultConfig {
-        applicationId "edu.cnm.deepdive.fairplay"
+        applicationId "edu.cnm.deepdive.WeThePeople"
         minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
