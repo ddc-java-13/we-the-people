@@ -15,11 +15,11 @@
     android:id="@+id/navigation_dashboard"
     android:label="@string/title_saved"
     android:name="edu.cnm.deepdive.wethepeople.controller.saved.SavedFragment"
-    tools:layout="@layout/fragment_dashboard"/>
+    tools:layout="@layout/fragment_saved_objects"/>
 
   <fragment
     android:id="@+id/navigation_search"
     android:label="@string/title_search"
     android:name="edu.cnm.deepdive.wethepeople.controller.search.SearchFragment"
-    tools:layout="@layout/fragment_notifications"/>
+    tools:layout="@layout/fragment_search"/>
 </navigation>

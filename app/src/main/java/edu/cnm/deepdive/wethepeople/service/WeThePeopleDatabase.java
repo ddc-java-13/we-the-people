@@ -44,12 +44,13 @@ public abstract class WeThePeopleDatabase extends RoomDatabase {
 
     @TypeConverter
     public static Long toLong(Date value) {
-      return (value != null) ?value.getTime() : null;
+      return (value != null) ? value.getTime() : null;
     }
-  @TypeConverter
-    public static Date toDate(Long value){
+
+    @TypeConverter
+    public static Date toDate(Long value) {
       return (value != null) ? new Date(value) : null;
-  }
+    }
 
   }
 
