@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.room.TypeConverter;
+import com.google.gson.annotations.Expose;
+import edu.cnm.deepdive.wethepeople.model.pojo.Attribute;
+import java.util.Arrays;
 import java.util.Date;
 
 
@@ -13,34 +15,29 @@ import java.util.Date;
 )
 public class LawOrBill {
 
+
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "law_or_bill_id")
+  @Expose
   private long id;
 
-  @ColumnInfo(name = "external_key")
-  @NonNull
-  private String externalKey;
+  //Need to understand what a CommentEndDate is
+  //Below is last modified date - no data for creation date
+
+  private Attribute attribute;
 
   @ColumnInfo(name = "creation_date", index = true)
   @NonNull
+  @Expose
   private Date creationDate;
 
+
+  //Links to more information on the law
   @ColumnInfo(index = true, collate = ColumnInfo.NOCASE)
   @NonNull
-  private String author;
+  @Expose
+  private String links;
 
-  @ColumnInfo(index = true, collate = ColumnInfo.NOCASE)
-  @NonNull
-  private String agency;
-
-  @ColumnInfo(index = true, collate = ColumnInfo.NOCASE)
-  @NonNull
-  private String signers;
-
-  //type"bill or law"
-  @ColumnInfo(index = true)
-  @NonNull
-  private Type type;
 
   public long getId() {
     return id;
@@ -50,13 +47,12 @@ public class LawOrBill {
     this.id = id;
   }
 
-  @NonNull
-  public String getExternalKey() {
-    return externalKey;
+  public Attribute getAttribute() {
+    return attribute;
   }
 
-  public void setExternalKey(@NonNull String externalKey) {
-    this.externalKey = externalKey;
+  public void setAttribute(Attribute attribute) {
+    this.attribute = attribute;
   }
 
   @NonNull
@@ -69,53 +65,34 @@ public class LawOrBill {
   }
 
   @NonNull
-  public String getAuthor() {
-    return author;
+  public String getLinks() {
+    return links;
   }
 
-  public void setAuthor(@NonNull String author) {
-    this.author = author;
+  public void setLinks(@NonNull String links) {
+    this.links = links;
   }
 
-  @NonNull
-  public String getAgency() {
-    return agency;
-  }
+  //Search Class
+  public static class SearchResult {
 
-  public void setAgency(@NonNull String agency) {
-    this.agency = agency;
-  }
+    @Expose
+    LawOrBill[] data;
 
-  @NonNull
-  public String getSigners() {
-    return signers;
-  }
-
-  public void setSigners(@NonNull String signers) {
-    this.signers = signers;
-  }
-
-  @NonNull
-  public Type getType() {
-    return type;
-  }
-
-  public void setType(@NonNull Type type) {
-    this.type = type;
-  }
-
-  public enum Type {
-    BILL, LAW;
-
-    @TypeConverter
-    public static Integer typeToInteger(Type value) {
-      return (value != null) ? value.ordinal() : null;
+    public LawOrBill[] getData() {
+      return data;
     }
 
-    @TypeConverter
-    public static Type integerToType(Integer value) {
-      return (value != null) ? Type.values()[value] : null;
+    public void setData(LawOrBill[] data) {
+      this.data = data;
     }
+
+    @Override
+    public String toString() {
+      return "SearchResult{" + "data=" + Arrays.toString(getData());
+    }
+
+
   }
 
 }

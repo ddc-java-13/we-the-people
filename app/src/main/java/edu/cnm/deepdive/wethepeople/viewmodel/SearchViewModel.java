@@ -1,18 +1,16 @@
-package edu.cnm.deepdive.wethepeople.controller.saved;
+package edu.cnm.deepdive.wethepeople.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-//TODO Make shareable
-public class SavedViewModel extends ViewModel {
 
+public class SearchViewModel extends ViewModel {
 
   private MutableLiveData<String> mText;
 
-  public SavedViewModel() {
-
+  public SearchViewModel() {
     mText = new MutableLiveData<>();
-    mText.setValue("This is a saved fragment");
+    mText.setValue("This is notifications fragment");
   }
 
   public LiveData<String> getText() {

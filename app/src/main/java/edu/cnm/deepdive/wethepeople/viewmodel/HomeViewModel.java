@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.wethepeople.controller.home;
+package edu.cnm.deepdive.wethepeople.viewmodel;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;

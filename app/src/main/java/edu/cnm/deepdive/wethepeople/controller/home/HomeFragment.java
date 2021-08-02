@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import edu.cnm.deepdive.wethepeople.R;
+import edu.cnm.deepdive.wethepeople.viewmodel.HomeViewModel;
 
 public class HomeFragment extends Fragment {
 

@@ -46,6 +46,6 @@ public interface LawOrBillDao {
   @Query("SELECT * FROM law_or_bill WHERE law_or_bill_id = :id")
   LiveData<LawOrBill> select(long id);
 
-  @Query("SELECT * FROM law_or_bill WHERE type = :type ORDER BY agency")
+  @Query("SELECT * FROM law_or_bill WHERE type = :type ORDER BY agencyId")
   LiveData<List<LawOrBill>> selectByType(Type type);
 }

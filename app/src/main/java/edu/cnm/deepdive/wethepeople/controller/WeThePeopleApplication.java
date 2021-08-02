@@ -10,7 +10,6 @@ import androidx.navigation.ui.NavigationUI;
 import edu.cnm.deepdive.wethepeople.R;
 
 
-//TODO implement google sign in
 public class WeThePeopleApplication extends AppCompatActivity {
 
   @Override
