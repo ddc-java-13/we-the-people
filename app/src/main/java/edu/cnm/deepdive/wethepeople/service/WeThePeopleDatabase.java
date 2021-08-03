@@ -8,7 +8,8 @@ import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 import edu.cnm.deepdive.wethepeople.model.dao.LawOrBillDao;
 import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill;
-import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill.Type;
+
+import edu.cnm.deepdive.wethepeople.model.pojo.Attribute;
 import edu.cnm.deepdive.wethepeople.service.WeThePeopleDatabase.Converters;
 import java.util.Date;
 
@@ -18,10 +19,10 @@ import java.util.Date;
     exportSchema = true
 )
 
-@TypeConverters({Converters.class, Type.class})
+@TypeConverters({Converters.class, Attribute.class})
 public abstract class WeThePeopleDatabase extends RoomDatabase {
 
-  private static final String DATABASE_NAME = "codebreaker-database";
+  private static final String DATABASE_NAME = "we-the-people-database";
 
   public static void setContext(Application context) {
     WeThePeopleDatabase.context = context;
