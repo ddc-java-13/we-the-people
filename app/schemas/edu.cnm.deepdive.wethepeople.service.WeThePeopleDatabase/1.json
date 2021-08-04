@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "dc9f64675711cfb04f4e7f7db6543f72",
+    "identityHash": "0b96ab4b6f9e64f331a1dc8ef2e089ad",
     "entities": [
       {
         "tableName": "law_or_bill",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`law_or_bill_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `attribute` TEXT, `creation_date` INTEGER NOT NULL, `links` TEXT NOT NULL COLLATE NOCASE)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`law_or_bill_id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `external_key` TEXT, `creation_date` INTEGER NOT NULL, `links` TEXT NOT NULL COLLATE NOCASE, `attr_document_type` TEXT, `attr_last_modified_date` INTEGER, `attr_highlighted_content` TEXT, `attr_withdrawn` INTEGER, `attr_title` TEXT, `attr_agency_id` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -15,8 +15,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "attribute",
-            "columnName": "attribute",
+            "fieldPath": "externalKey",
+            "columnName": "external_key",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -31,6 +31,42 @@
             "columnName": "links",
             "affinity": "TEXT",
             "notNull": true
+          },
+          {
+            "fieldPath": "attribute.documentType",
+            "columnName": "attr_document_type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attribute.lastModifiedDate",
+            "columnName": "attr_last_modified_date",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attribute.highlightedContent",
+            "columnName": "attr_highlighted_content",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attribute.withdrawn",
+            "columnName": "attr_withdrawn",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attribute.title",
+            "columnName": "attr_title",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "attribute.agencyId",
+            "columnName": "attr_agency_id",
+            "affinity": "TEXT",
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -40,6 +76,14 @@
           "autoGenerate": true
         },
         "indices": [
+          {
+            "name": "index_law_or_bill_external_key",
+            "unique": true,
+            "columnNames": [
+              "external_key"
+            ],
+            "createSql": "CREATE UNIQUE INDEX IF NOT EXISTS `index_law_or_bill_external_key` ON `${TABLE_NAME}` (`external_key`)"
+          },
           {
             "name": "index_law_or_bill_creation_date",
             "unique": false,
@@ -63,7 +107,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'dc9f64675711cfb04f4e7f7db6543f72')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0b96ab4b6f9e64f331a1dc8ef2e089ad')"
     ]
   }
 }

@@ -3,7 +3,7 @@ package edu.cnm.deepdive.wethepeople.service;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import edu.cnm.deepdive.wethepeople.BuildConfig;
-import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill.SearchResult;
+import edu.cnm.deepdive.wethepeople.model.dto.SearchResult;
 import io.reactivex.Single;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -17,7 +17,8 @@ import retrofit2.http.Query;
 public interface WebServiceProxy {
   @GET("api")
   Single<SearchResult> getHits(
-      @Query("key") String key, @Query("per_page") int per_page);
+      @Query("filter[searchTerm]") String searchTerm,
+      @Query("api_key") String key);
 
   static WebServiceProxy getInstance() {
     return InstanceHolder.INSTANCE;
@@ -45,6 +46,7 @@ public interface WebServiceProxy {
           .build();
       INSTANCE = retrofit.create(WebServiceProxy.class);
     }
+
 
   }
 }

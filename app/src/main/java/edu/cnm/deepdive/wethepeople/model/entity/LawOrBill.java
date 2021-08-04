@@ -2,28 +2,40 @@ package edu.cnm.deepdive.wethepeople.model.entity;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.Index;
 import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
 import com.google.gson.annotations.Expose;
-import edu.cnm.deepdive.wethepeople.model.pojo.Attribute;
+import com.google.gson.annotations.SerializedName;
 import java.util.Arrays;
 import java.util.Date;
+import retrofit2.http.GET;
 
 
 @Entity(
-    tableName = "law_or_bill"
+    tableName = "law_or_bill",
+    indices = {
+        @Index(value = "external_key", unique = true)
+    }
 )
 public class LawOrBill {
 
 
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "law_or_bill_id")
-  @Expose
   private long id;
+
+  @ColumnInfo(name = "external_key")
+  @Expose
+  @SerializedName("id")
+  private String externalKey;
 
   //Need to understand what a CommentEndDate is
   //Below is last modified date - no data for creation date
 
+  @Embedded(prefix = "attr_")
   private Attribute attribute;
 
   @ColumnInfo(name = "creation_date", index = true)
@@ -36,7 +48,7 @@ public class LawOrBill {
   @ColumnInfo(index = true, collate = ColumnInfo.NOCASE)
   @NonNull
   @Expose
-  private String links;
+  private Links links;
 
 
   public long getId() {
@@ -65,34 +77,41 @@ public class LawOrBill {
   }
 
   @NonNull
-  public String getLinks() {
+  public Links getLinks() {
     return links;
   }
 
-  public void setLinks(@NonNull String links) {
+  public void setLinks(@NonNull Links links) {
     this.links = links;
   }
 
-  //Search Class
-  public static class SearchResult {
+  public static class Links {
 
     @Expose
-    LawOrBill[] data;
+    private String self;
 
-    public LawOrBill[] getData() {
-      return data;
+    public Links(String self) {
+      this.self = self;
     }
 
-    public void setData(LawOrBill[] data) {
-      this.data = data;
+    @TypeConverter
+    public static String toString(Links value) {
+      return (value != null) ? value.getSelf() : null;
     }
 
-    @Override
-    public String toString() {
-      return "SearchResult{" + "data=" + Arrays.toString(getData());
+    @TypeConverter
+    public static Links from(String value) {
+      return (value != null) ? new Links(value) : null;
     }
 
 
+
+    public String getSelf() {
+      return self;
+    }
+
+    public void setSelf(String self) {
+      this.self = self;
+    }
   }
-
 }
