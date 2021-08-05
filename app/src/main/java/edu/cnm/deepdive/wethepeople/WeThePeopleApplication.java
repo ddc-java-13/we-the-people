@@ -2,6 +2,9 @@ package edu.cnm.deepdive.wethepeople;
 
 import android.app.Application;
 import com.facebook.stetho.Stetho;
+import edu.cnm.deepdive.wethepeople.service.WeThePeopleDatabase;
+import io.reactivex.Scheduler;
+import io.reactivex.schedulers.Schedulers;
 
 /**
  * Initializes (in the {@link #onCreate()} method) application-level resources. This class
@@ -14,6 +17,13 @@ public class WeThePeopleApplication extends Application {
   public void onCreate() {
     super.onCreate();
     Stetho.initializeWithDefaults(this);
+    WeThePeopleDatabase.setContext(this);
+    WeThePeopleDatabase
+        .getInstance()
+        .getLawOrBillDao()
+        .delete()
+        .subscribeOn(Schedulers.io())
+        .subscribe();
   }
 
 }

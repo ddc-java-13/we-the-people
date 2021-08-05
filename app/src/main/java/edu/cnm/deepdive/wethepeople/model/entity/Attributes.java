@@ -3,11 +3,11 @@ package edu.cnm.deepdive.wethepeople.model.entity;
 import androidx.room.ColumnInfo;
 import androidx.room.Embedded;
 import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 import com.google.gson.annotations.Expose;
 import java.util.Date;
 
-
-public class Attribute {
+public class Attributes {
 
   @Expose
   @ColumnInfo(name = "document_type")
@@ -30,6 +30,7 @@ public class Attribute {
   @Expose
   @ColumnInfo(name = "agency_id")
   private String agencyId;
+
 
   public String getDocumentType() {
     return documentType;
@@ -55,6 +56,7 @@ public class Attribute {
     this.highlightedContent = highlightedContent;
   }
 
+
   public boolean isWithdrawn() {
     return withdrawn;
   }
@@ -78,4 +80,6 @@ public class Attribute {
   public void setAgencyId(String agencyId) {
     this.agencyId = agencyId;
   }
+
+
 }

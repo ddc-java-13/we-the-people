@@ -15,10 +15,11 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface WebServiceProxy {
-  @GET("api")
+
+  @GET("v4/documents")
   Single<SearchResult> getHits(
       @Query("filter[searchTerm]") String searchTerm,
-      @Query("api_key") String key);
+      @Query("api_key") String apiKey);
 
   static WebServiceProxy getInstance() {
     return InstanceHolder.INSTANCE;
@@ -41,7 +42,7 @@ public interface WebServiceProxy {
       Retrofit retrofit = new Retrofit.Builder()
           .addConverterFactory(GsonConverterFactory.create(gson))
           .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-          .baseUrl(BuildConfig.BUILD_TYPE)
+          .baseUrl(BuildConfig.BASE_URL)
           .client(client)
           .build();
       INSTANCE = retrofit.create(WebServiceProxy.class);

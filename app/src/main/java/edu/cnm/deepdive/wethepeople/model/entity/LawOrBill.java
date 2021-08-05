@@ -9,9 +9,7 @@ import androidx.room.PrimaryKey;
 import androidx.room.TypeConverter;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import java.util.Arrays;
 import java.util.Date;
-import retrofit2.http.GET;
 
 
 @Entity(
@@ -35,13 +33,15 @@ public class LawOrBill {
   //Need to understand what a CommentEndDate is
   //Below is last modified date - no data for creation date
 
+
   @Embedded(prefix = "attr_")
-  private Attribute attribute;
+  @NonNull
+  @Expose
+  private Attributes attributes;
 
   @ColumnInfo(name = "creation_date", index = true)
   @NonNull
-  @Expose
-  private Date creationDate;
+  private Date creationDate = new Date();
 
 
   //Links to more information on the law
@@ -49,7 +49,6 @@ public class LawOrBill {
   @NonNull
   @Expose
   private Links links;
-
 
   public long getId() {
     return id;
@@ -59,12 +58,20 @@ public class LawOrBill {
     this.id = id;
   }
 
-  public Attribute getAttribute() {
-    return attribute;
+  public String getExternalKey() {
+    return externalKey;
   }
 
-  public void setAttribute(Attribute attribute) {
-    this.attribute = attribute;
+  public void setExternalKey(String externalKey) {
+    this.externalKey = externalKey;
+  }
+
+  public Attributes getAttributes() {
+    return attributes;
+  }
+
+  public void setAttributes(Attributes attributes) {
+    this.attributes = attributes;
   }
 
   @NonNull
@@ -105,7 +112,6 @@ public class LawOrBill {
     }
 
 
-
     public String getSelf() {
       return self;
     }
@@ -114,4 +120,5 @@ public class LawOrBill {
       this.self = self;
     }
   }
+
 }

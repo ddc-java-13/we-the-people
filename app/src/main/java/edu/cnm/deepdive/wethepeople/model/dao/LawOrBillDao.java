@@ -1,6 +1,5 @@
 package edu.cnm.deepdive.wethepeople.model.dao;
 
-import android.renderscript.Type;
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
@@ -47,6 +46,7 @@ public interface LawOrBillDao {
   @Query("SELECT * FROM law_or_bill WHERE law_or_bill_id = :id")
   LiveData<LawOrBill> select(long id);
 
-  @Query("SELECT * FROM law_or_bill WHERE attribute = :type ORDER BY attribute")
-  LiveData<List<LawOrBill>> selectByType(Type type);
+//  @Query("SELECT * FROM law_or_bill WHERE attribute = :attribute ORDER BY creation_date")
+//  LiveData<List<LawOrBill>> selectByAttribute(Attribute attribute);
+
 }

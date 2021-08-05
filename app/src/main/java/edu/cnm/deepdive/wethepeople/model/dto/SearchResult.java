@@ -3,24 +3,25 @@ package edu.cnm.deepdive.wethepeople.model.dto;
 import com.google.gson.annotations.Expose;
 import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill;
 import java.util.Arrays;
+import java.util.List;
 
 //Search Class
 public class SearchResult {
 
   @Expose
-  LawOrBill[] data;
+  List<LawOrBill> data;
 
-  public LawOrBill[] getData() {
+  public List<LawOrBill> getData() {
     return data;
   }
 
-  public void setData(LawOrBill[] data) {
+  public void setData(List<LawOrBill> data) {
     this.data = data;
   }
 
   @Override
   public String toString() {
-    return "SearchResult{" + "data=" + Arrays.toString(getData());
+    return "SearchResult{" + "data=" + getData();
   }
 
 

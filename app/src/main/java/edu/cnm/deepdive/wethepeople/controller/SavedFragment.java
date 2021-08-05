@@ -1,4 +1,4 @@
-package edu.cnm.deepdive.wethepeople.controller.saved;
+package edu.cnm.deepdive.wethepeople.controller;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -22,13 +22,6 @@ public class SavedFragment extends Fragment {
     savedViewModel =
         new ViewModelProvider(this).get(SavedViewModel.class);
     View root = inflater.inflate(R.layout.fragment_saved_objects, container, false);
-    final TextView textView = root.findViewById(R.id.saved_item);
-    savedViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-      @Override
-      public void onChanged(@Nullable String s) {
-        textView.setText(s);
-      }
-    });
     return root;
   }
 }

@@ -3,6 +3,8 @@
   xmlns:tools="http://schemas.android.com/tools"
   package="edu.cnm.deepdive.wethepeople">
 
+  <uses-permission android:name="android.permission.INTERNET"/>
+
   <application
     android:allowBackup="false"
     android:icon="@mipmap/ic_launcher"
@@ -14,7 +16,7 @@
     tools:ignore="AllowBackup">
     <activity
       android:label="@string/title_activity_home_screen"
-      android:name=".controller.WeThePeopleApplication">
+      android:name=".controller.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
 

@@ -5,32 +5,55 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  tools:context=".controller.search.SearchFragment">
+  android:padding="8dp"
+  tools:context=".controller.SearchFragment">
 
-  <SearchView
-    android:id="@+id/searchView"
-    android:layout_width="355dp"
-    android:layout_height="57dp"
-    android:layout_marginBottom="308dp"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"/>
+
+  <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/search_term_layout"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:hintEnabled="true"
+    app:hintAnimationEnabled="true"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/search">
+
+    <com.google.android.material.textfield.TextInputEditText
+      android:id="@+id/search_term"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:inputType="text"
+      android:hint="Search Term"/>
+
+  </com.google.android.material.textfield.TextInputLayout>
 
   <ImageButton
-
+    android:id="@+id/search"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
     android:background="?android:selectableItemBackgroundBorderless"
-    android:contentDescription="@string/save_item"
-    android:src="@drawable/ic_baseline_bookmark"
-    android:tooltipText="@string/save_item"
-    android:visibility="visible"
-    android:autofillHints="@string/save_item"
-    app:layout_constraintBottom_toTopOf="@+id/searchView"
-    app:layout_constraintDimensionRatio="1:2"
+    android:contentDescription="Search"
+    android:src="@drawable/ic_baseline_search"
+    android:tooltipText="Search"
     app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toEndOf="@+id/searchView"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.0"/>
+    app:layout_constraintTop_toTopOf="@id/search_term_layout"
+    app:layout_constraintBottom_toBottomOf="@id/search_term_layout"/>
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/search_results"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:background="@android:color/darker_gray"
+    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+    android:orientation="vertical"
+    android:layout_margin="4dp"
+    app:layout_constraintTop_toBottomOf="@id/search_term_layout"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    tools:listitem="@layout/item_search"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
