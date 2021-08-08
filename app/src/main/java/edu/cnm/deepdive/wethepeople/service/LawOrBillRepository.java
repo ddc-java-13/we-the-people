@@ -1,13 +1,19 @@
 package edu.cnm.deepdive.wethepeople.service;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.lifecycle.LiveData;
 import edu.cnm.deepdive.wethepeople.BuildConfig;
 import edu.cnm.deepdive.wethepeople.R;
 import edu.cnm.deepdive.wethepeople.model.dao.LawOrBillDao;
 import edu.cnm.deepdive.wethepeople.model.dto.SearchResult;
 import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill;
+import io.reactivex.Completable;
+import io.reactivex.Maybe;
+import io.reactivex.MaybeObserver;
+import io.reactivex.MaybeSource;
 import io.reactivex.Single;
+import io.reactivex.SingleObserver;
 import io.reactivex.schedulers.Schedulers;
 import java.util.List;
 import java.util.Random;
@@ -43,11 +49,19 @@ public class LawOrBillRepository {
         .subscribeOn(Schedulers.io());
   }
 
+  public Completable toggle(LawOrBill item) {
+    return lawOrBillDao
+        .select(item.getExternalKey())
+        .flatMap((retrievedItem) -> Maybe
+            .fromSingle(lawOrBillDao.delete(retrievedItem).map(Integer::longValue)))
+        .switchIfEmpty(Maybe
+            .fromSingle(lawOrBillDao.insert(item)))
+        .ignoreElement()
+        .subscribeOn(Schedulers.io());
+  }
+
   public LiveData<List<LawOrBill>> getAll() {
     return lawOrBillDao.selectAll();
   }
 
-  public LiveData<Set<LawOrBill>> getAllAsSet() {
-    return lawOrBillDao.selectAllAsSet();
-  }
 }

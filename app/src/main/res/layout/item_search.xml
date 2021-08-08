@@ -6,6 +6,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_margin="4dp"
   android:padding="4dp"
+  android:background="?android:selectableItemBackground"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   app:strokeColor="?attr/colorPrimaryDark"
   app:strokeWidth="1dp"
@@ -45,8 +46,10 @@
       android:id="@+id/save_item"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
+      android:layout_margin="4dp"
       android:src="@drawable/ic_baseline_bookmark"
       android:background="?android:selectableItemBackground"
+      android:padding="4dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toTopOf="parent"/>
 

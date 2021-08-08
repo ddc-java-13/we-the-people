@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill;
 
+import io.reactivex.Maybe;
 import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
@@ -47,11 +48,13 @@ public interface LawOrBillDao {
   @Query("SELECT * FROM law_or_bill WHERE law_or_bill_id = :id")
   LiveData<LawOrBill> select(long id);
 
+  @Query("SELECT * FROM law_or_bill WHERE external_key = :externalKey")
+  Maybe<LawOrBill> select(String externalKey);
+
   @Query("SELECT * FROM law_or_bill ORDER BY creation_date DESC")
   LiveData<List<LawOrBill>> selectAll();
 
-  @Query("SELECT * FROM law_or_bill ORDER BY creation_date DESC")
-  LiveData<Set<LawOrBill>> selectAllAsSet();
+
 
 //  @Query("SELECT * FROM law_or_bill WHERE attribute = :attribute ORDER BY creation_date")
 //  LiveData<List<LawOrBill>> selectByAttribute(Attribute attribute);

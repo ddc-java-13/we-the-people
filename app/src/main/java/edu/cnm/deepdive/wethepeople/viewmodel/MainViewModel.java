@@ -17,14 +17,14 @@ import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
 import java.util.Set;
 
-public class SearchViewModel extends AndroidViewModel implements LifecycleObserver {
+public class MainViewModel extends AndroidViewModel implements LifecycleObserver {
 
   private final LawOrBillRepository repository;
   private final MutableLiveData<List<LawOrBill>> searchResults;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
 
-  public SearchViewModel(@NonNull Application application) {
+  public MainViewModel(@NonNull Application application) {
     super(application);
     repository = new LawOrBillRepository(application);
     searchResults = new MutableLiveData<>();
@@ -36,12 +36,12 @@ public class SearchViewModel extends AndroidViewModel implements LifecycleObserv
     return searchResults;
   }
 
-  public LiveData<Throwable> getThrowable() {
-    return throwable;
+  public LiveData<List<LawOrBill>> getSaved() {
+    return repository.getAll();
   }
 
-  public LiveData<Set<LawOrBill>> getBookmarkedSet() {
-    return repository.getAllAsSet();
+  public LiveData<Throwable> getThrowable() {
+    return throwable;
   }
 
   public void search(String searchTerm) {
@@ -51,6 +51,19 @@ public class SearchViewModel extends AndroidViewModel implements LifecycleObserv
             .search(searchTerm)
             .subscribe(
                 searchResults::postValue,
+                this::setThrowable
+            )
+    );
+  }
+
+  public void toggleBookmark(LawOrBill item) {
+    throwable.setValue(null);
+    pending.add(
+        repository
+            .toggle(item)
+            .subscribe(
+                () -> {
+                },
                 this::setThrowable
             )
     );

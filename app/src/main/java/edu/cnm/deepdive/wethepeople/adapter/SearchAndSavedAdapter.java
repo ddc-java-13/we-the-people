@@ -8,7 +8,7 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import edu.cnm.deepdive.wethepeople.R;
-import edu.cnm.deepdive.wethepeople.adapter.SearchAdapter.Holder;
+import edu.cnm.deepdive.wethepeople.adapter.SearchAndSavedAdapter.Holder;
 import edu.cnm.deepdive.wethepeople.databinding.ItemSearchBinding;
 import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill;
 import java.text.DateFormat;
@@ -17,10 +17,12 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class SearchAdapter extends RecyclerView.Adapter<Holder> {
+public class SearchAndSavedAdapter extends RecyclerView.Adapter<Holder> {
 
   private final List<LawOrBill> items;
-  private final OnSaveClickListener listener;
+  private final boolean savedAssumed;
+  private final OnSaveClickListener saveListener;
+  private final OnItemClickListener itemListener;
   private final LayoutInflater inflater;
   private final DateFormat dateFormat;
   private final String dateLabel;
@@ -30,8 +32,11 @@ public class SearchAdapter extends RecyclerView.Adapter<Holder> {
   @ColorInt
   private final int notBookmarkedItem;
 
-  public SearchAdapter(@NonNull Context context, OnSaveClickListener listener) {
-    this.listener = listener;
+  public SearchAndSavedAdapter(@NonNull Context context, boolean savedAssumed,
+      OnSaveClickListener saveListener, OnItemClickListener itemListener) {
+    this.savedAssumed = savedAssumed;
+    this.saveListener = saveListener;
+    this.itemListener = itemListener;
     inflater = LayoutInflater.from(context);
     dateFormat = android.text.format.DateFormat.getDateFormat(context);
     dateLabel = context.getString(R.string.date_label);
@@ -81,15 +86,26 @@ public class SearchAdapter extends RecyclerView.Adapter<Holder> {
       binding.lastModified.setText(String.format(dateLabel,
           dateFormat.format(item.getAttributes().getLastModifiedDate())));
       binding.saveItem.setColorFilter(
-          bookmarks.contains(item) ? bookmarkedItem : notBookmarkedItem);
+          (savedAssumed || bookmarks.contains(item))
+              ? bookmarkedItem
+              : notBookmarkedItem);
       binding.saveItem.setOnClickListener((v) ->
-          listener.onSaveClick(binding.saveItem, position, item));
+          saveListener.onSaveClick(binding.saveItem, position, item));
+      binding.getRoot().setOnClickListener((v) ->
+          itemListener.onItemClick(binding.getRoot(), position, item));
     }
   }
 
   @FunctionalInterface
   public interface OnSaveClickListener {
 
-    void onSaveClick (View view, int position, LawOrBill item);
+    void onSaveClick(View view, int position, LawOrBill item);
+  }
+
+  @FunctionalInterface
+  public interface OnItemClickListener {
+
+    void onItemClick(View view, int position, LawOrBill item);
+
   }
 }
