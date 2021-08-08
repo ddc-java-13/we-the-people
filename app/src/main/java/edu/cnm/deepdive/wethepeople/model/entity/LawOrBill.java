@@ -1,6 +1,7 @@
 package edu.cnm.deepdive.wethepeople.model.entity;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Embedded;
 import androidx.room.Entity;
@@ -90,6 +91,23 @@ public class LawOrBill {
 
   public void setLinks(@NonNull Links links) {
     this.links = links;
+  }
+
+  @Override
+  public int hashCode() {
+    return externalKey.hashCode();
+  }
+
+  @Override
+  public boolean equals(@Nullable Object obj) {
+    boolean comparison = false;
+    if (this == obj) {
+      comparison = true;
+    }else if (obj instanceof LawOrBill){
+      LawOrBill other = (LawOrBill) obj;
+      comparison = externalKey.equals(other.externalKey);
+    }
+    return comparison;
   }
 
   public static class Links {

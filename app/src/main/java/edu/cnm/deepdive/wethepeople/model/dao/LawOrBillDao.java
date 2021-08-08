@@ -11,6 +11,7 @@ import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill;
 import io.reactivex.Single;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 @Dao
 public interface LawOrBillDao {
@@ -45,6 +46,12 @@ public interface LawOrBillDao {
 
   @Query("SELECT * FROM law_or_bill WHERE law_or_bill_id = :id")
   LiveData<LawOrBill> select(long id);
+
+  @Query("SELECT * FROM law_or_bill ORDER BY creation_date DESC")
+  LiveData<List<LawOrBill>> selectAll();
+
+  @Query("SELECT * FROM law_or_bill ORDER BY creation_date DESC")
+  LiveData<Set<LawOrBill>> selectAllAsSet();
 
 //  @Query("SELECT * FROM law_or_bill WHERE attribute = :attribute ORDER BY creation_date")
 //  LiveData<List<LawOrBill>> selectByAttribute(Attribute attribute);

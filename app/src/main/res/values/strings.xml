@@ -12,4 +12,17 @@
   <string name="label_home">Random Regulation</string>
   <string name="date_label">Last Modified: %s</string>
 
+  <string-array name="random_search_terms">
+    <item>medical</item>
+    <item>education</item>
+    <item>FBI</item>
+    <item>EPA</item>
+    <item>IRS</item>
+    <item>DOT</item>
+    <item>military</item>
+    <item>CIA</item>
+    <item>markup</item>
+    <item>tax</item>
+    <item>property</item>
+  </string-array>
 </resources>

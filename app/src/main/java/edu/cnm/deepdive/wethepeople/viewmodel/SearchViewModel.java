@@ -15,6 +15,7 @@ import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill;
 import edu.cnm.deepdive.wethepeople.service.LawOrBillRepository;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
+import java.util.Set;
 
 public class SearchViewModel extends AndroidViewModel implements LifecycleObserver {
 
@@ -37,6 +38,10 @@ public class SearchViewModel extends AndroidViewModel implements LifecycleObserv
 
   public LiveData<Throwable> getThrowable() {
     return throwable;
+  }
+
+  public LiveData<Set<LawOrBill>> getBookmarkedSet() {
+    return repository.getAllAsSet();
   }
 
   public void search(String searchTerm) {

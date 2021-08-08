@@ -21,12 +21,17 @@ public class SearchFragment extends Fragment {
 
   private SearchViewModel searchViewModel;
   private FragmentSearchBinding binding;
+  private SearchAdapter adapter;
 
   public View onCreateView(@NonNull LayoutInflater inflater,
       ViewGroup container, Bundle savedInstanceState) {
     binding = FragmentSearchBinding.inflate(inflater, container, false);
     binding.search.setOnClickListener((v) ->
         searchViewModel.search(binding.searchTerm.getText().toString().trim()));
+    adapter = new SearchAdapter(getContext(),
+        (v, pos, item) -> { /* TODO Ask view model to toggle item as a bookmark */});
+    binding.searchResults.setAdapter(adapter);
+
     return binding.getRoot();
   }
 
@@ -37,8 +42,15 @@ public class SearchFragment extends Fragment {
     searchViewModel = new ViewModelProvider(getActivity()).get(SearchViewModel.class);
     getLifecycle().addObserver(searchViewModel);
     searchViewModel.getSearchResults().observe(getViewLifecycleOwner(), (searchResults) -> {
-      SearchAdapter adapter = new SearchAdapter(getContext(), searchResults);
-      binding.searchResults.setAdapter(adapter);
+      adapter.getItems().clear();
+      adapter.getItems().addAll(searchResults);
+      adapter.notifyDataSetChanged();
     });
+    searchViewModel.getBookmarkedSet().observe(getViewLifecycleOwner(), (bookmarks) -> {
+      adapter.getBookmarks().addAll(bookmarks);
+      adapter.notifyDataSetChanged();
+    });
+
+
   }
 }
