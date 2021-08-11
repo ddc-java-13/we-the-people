@@ -1,0 +1,8 @@
+edu.cnm.deepdive.wethepeople
+edu.cnm.deepdive.wethepeople.adapter
+edu.cnm.deepdive.wethepeople.controller
+edu.cnm.deepdive.wethepeople.model.dao
+edu.cnm.deepdive.wethepeople.model.dto
+edu.cnm.deepdive.wethepeople.model.entity
+edu.cnm.deepdive.wethepeople.service
+edu.cnm.deepdive.wethepeople.viewmodel
