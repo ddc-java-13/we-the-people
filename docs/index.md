@@ -45,8 +45,9 @@ Introduce an application that will simplify, organize, and indicate new laws and
 * Notify User of possible Law Changes across state lines 
 * Location
 * Share Function
-* Notify users of specific changes from state to state^
-* "law of The Day" a random did you "know" about a law. 
+* Link to more data
+* Notify users of specific changes from state to state
+
 
 ## DDL
 
