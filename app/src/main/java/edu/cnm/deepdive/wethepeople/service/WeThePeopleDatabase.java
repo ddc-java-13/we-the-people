@@ -20,6 +20,9 @@ import java.util.Date;
 @TypeConverters(value = {Converters.class, LawOrBill.Links.class})
 public abstract class WeThePeopleDatabase extends RoomDatabase {
 
+  /**
+   * Database service proxy
+   */
   private static final String DATABASE_NAME = "we-the-people-database";
 
   public static void setContext(Application context) {

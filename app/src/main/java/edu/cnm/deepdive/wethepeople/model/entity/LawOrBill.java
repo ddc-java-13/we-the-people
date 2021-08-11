@@ -21,6 +21,9 @@ import java.util.Date;
 )
 public class LawOrBill {
 
+  /**
+   * Tables data to store on local database
+   */
 
   @PrimaryKey(autoGenerate = true)
   @ColumnInfo(name = "law_or_bill_id")
@@ -31,8 +34,7 @@ public class LawOrBill {
   @SerializedName("id")
   private String externalKey;
 
-  //Need to understand what a CommentEndDate is
-  //Below is last modified date - no data for creation date
+
 
 
   @Embedded(prefix = "attr_")

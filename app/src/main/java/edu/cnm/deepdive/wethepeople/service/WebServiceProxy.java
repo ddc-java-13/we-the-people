@@ -16,6 +16,11 @@ import retrofit2.http.Query;
 
 public interface WebServiceProxy {
 
+  /**
+   *
+   * @param searchTerm A list of search terms to implement
+   * @param apiKey an Api key to get data
+   */
   @GET("v4/documents")
   Single<SearchResult> getHits(
       @Query("filter[searchTerm]") String searchTerm,

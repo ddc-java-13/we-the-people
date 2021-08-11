@@ -19,6 +19,11 @@ public class HomeViewModel extends AndroidViewModel {
   private final LawOrBillRepository repository;
   private final CompositeDisposable pending;
 
+  /**
+   *
+   * @param application Loads a random regulation from keywords and implements a search method
+   */
+
   public HomeViewModel(@NonNull Application application) {
     super(application);
     repository = new LawOrBillRepository(application);

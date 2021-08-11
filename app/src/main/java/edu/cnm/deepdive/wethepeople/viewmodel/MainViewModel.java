@@ -2,7 +2,6 @@ package edu.cnm.deepdive.wethepeople.viewmodel;
 
 import android.app.Application;
 import android.util.Log;
-import android.widget.SearchView;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.Lifecycle.Event;
@@ -10,26 +9,34 @@ import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.OnLifecycleEvent;
-import androidx.lifecycle.ViewModel;
 import edu.cnm.deepdive.wethepeople.model.entity.LawOrBill;
 import edu.cnm.deepdive.wethepeople.service.LawOrBillRepository;
 import io.reactivex.disposables.CompositeDisposable;
 import java.util.List;
-import java.util.Set;
 
 public class MainViewModel extends AndroidViewModel implements LifecycleObserver {
 
   private final LawOrBillRepository repository;
   private final MutableLiveData<List<LawOrBill>> searchResults;
+  private final MutableLiveData<LawOrBill> item;
+  private final MutableLiveData<LawOrBill> randomReg;
   private final MutableLiveData<Throwable> throwable;
   private final CompositeDisposable pending;
+
+  /**
+   *
+   * @param application Inflates all view models and populates searches
+   */
 
   public MainViewModel(@NonNull Application application) {
     super(application);
     repository = new LawOrBillRepository(application);
     searchResults = new MutableLiveData<>();
+    item = new MutableLiveData<>();
+    randomReg = new MutableLiveData<>();
     throwable = new MutableLiveData<>();
     pending = new CompositeDisposable();
+    loadRandomReg();
   }
 
   public LiveData<List<LawOrBill>> getSearchResults() {
@@ -38,6 +45,29 @@ public class MainViewModel extends AndroidViewModel implements LifecycleObserver
 
   public LiveData<List<LawOrBill>> getSaved() {
     return repository.getAll();
+  }
+
+  public LiveData<LawOrBill> getItem() {
+    return item;
+  }
+
+  public void setItem(LawOrBill item) {
+    this.item.setValue(item);
+  }
+
+  public LiveData<LawOrBill> getRandomReg() {
+    return randomReg;
+  }
+
+  private void loadRandomReg() {
+    pending.add(
+        repository
+            .getRandom()
+            .subscribe(
+                randomReg::postValue,
+                throwable::postValue
+            )
+    );
   }
 
   public LiveData<Throwable> getThrowable() {

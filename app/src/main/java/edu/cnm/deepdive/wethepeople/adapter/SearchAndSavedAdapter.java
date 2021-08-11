@@ -16,7 +16,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+/**
+ *
+ */
 public class SearchAndSavedAdapter extends RecyclerView.Adapter<Holder> {
 
   private final List<LawOrBill> items;
@@ -31,6 +33,14 @@ public class SearchAndSavedAdapter extends RecyclerView.Adapter<Holder> {
   private final int bookmarkedItem;
   @ColorInt
   private final int notBookmarkedItem;
+
+  /**
+   *
+   * @param context refers to color if saved vs. non saved
+   * @param savedAssumed Checks to see if item is saved in database
+   * @param saveListener looks for saved item
+   * @param itemListener finds item in database
+   */
 
   public SearchAndSavedAdapter(@NonNull Context context, boolean savedAssumed,
       OnSaveClickListener saveListener, OnItemClickListener itemListener) {

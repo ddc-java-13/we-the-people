@@ -5,6 +5,10 @@
   android:id="@+id/mobile_navigation"
   app:startDestination="@+id/navigation_home">
 
+  <action
+    android:id="@+id/show_details"
+    app:destination="@id/navigation_details"/>
+
   <fragment
     android:id="@+id/navigation_home"
     android:label="@string/label_home"
@@ -15,11 +19,17 @@
     android:id="@+id/navigation_saved_items"
     android:label="@string/title_saved"
     android:name="edu.cnm.deepdive.wethepeople.controller.SavedFragment"
-    tools:layout="@layout/fragment_saved_objects"/>
+    tools:layout="@layout/fragment_saved"/>
 
   <fragment
     android:id="@+id/navigation_search"
     android:label="@string/title_search"
     android:name="edu.cnm.deepdive.wethepeople.controller.SearchFragment"
     tools:layout="@layout/fragment_search"/>
+
+  <dialog
+    android:id="@+id/navigation_details"
+    android:name="edu.cnm.deepdive.wethepeople.controller.DetailsFragment"
+    tools:layout="@layout/fragment_details"/>
+
 </navigation>

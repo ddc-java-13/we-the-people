@@ -19,7 +19,7 @@
     tools:text="Final Report of the Small Business Advocacy Review Panel on EPA's Planned Proposed Rule: Lead-Based Paint; Certification and Training; Renovation and Remodeling Requirements (part 1 of 4)"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+    app:layout_constraintEnd_toStartOf="@id/save_item"/>
   <TextView
     android:layout_width="0dp"
     android:layout_height="wrap_content"
@@ -29,7 +29,19 @@
     tools:text="last modified: 07/31/2021"
     app:layout_constraintTop_toBottomOf="@id/title"
     app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"/>
+    app:layout_constraintEnd_toStartOf="@id/save_item"/>
+  <ImageButton
+    android:contentDescription="@string/save_item"
+    android:id="@+id/save_item"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:src="@drawable/ic_baseline_bookmark"
+    android:background="?android:selectableItemBackground"
+    android:padding="4dp"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toTopOf="parent"/>
+
   <ScrollView
     android:id="@+id/scrollView"
     android:layout_width="0dp"

@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
+import edu.cnm.deepdive.wethepeople.MobileNavigationDirections;
 import edu.cnm.deepdive.wethepeople.adapter.SearchAndSavedAdapter;
 import edu.cnm.deepdive.wethepeople.databinding.FragmentSearchBinding;
 import edu.cnm.deepdive.wethepeople.viewmodel.MainViewModel;
@@ -26,7 +28,11 @@ public class SearchFragment extends Fragment {
         mainViewModel.search(binding.searchTerm.getText().toString().trim()));
     adapter = new SearchAndSavedAdapter(getContext(), false,
         (v, pos, item) -> mainViewModel.toggleBookmark(item),
-        (v, pos, item) -> { /* TODO display item details */});
+        (v, pos, item) -> {
+          mainViewModel.setItem(item);
+          Navigation.findNavController(binding.getRoot())
+              .navigate(MobileNavigationDirections.showDetails());
+        });
     binding.searchResults.setAdapter(adapter);
 
     return binding.getRoot();

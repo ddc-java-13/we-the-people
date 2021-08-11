@@ -27,6 +27,11 @@ public class LawOrBillRepository {
   private final Random random;
   private final String[] randomSearchTerms;
 
+  /**
+   *
+   * @param context Gets random SearchTerm
+   */
+
   public LawOrBillRepository(Context context) {
     this.context = context;
     WeThePeopleDatabase database = WeThePeopleDatabase.getInstance();

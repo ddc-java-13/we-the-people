@@ -9,6 +9,10 @@ import java.util.Date;
 
 public class Attributes {
 
+  /**
+   * Holds pertinent Data from the service.
+   * Highlighted Content is the body of the collected data
+   */
   @Expose
   @ColumnInfo(name = "document_type")
   private String documentType;

@@ -51,12 +51,9 @@ public interface LawOrBillDao {
   @Query("SELECT * FROM law_or_bill WHERE external_key = :externalKey")
   Maybe<LawOrBill> select(String externalKey);
 
-  @Query("SELECT * FROM law_or_bill ORDER BY creation_date DESC")
+  @Query("SELECT * FROM law_or_bill ORDER BY attr_title ASC")
   LiveData<List<LawOrBill>> selectAll();
 
 
-
-//  @Query("SELECT * FROM law_or_bill WHERE attribute = :attribute ORDER BY creation_date")
-//  LiveData<List<LawOrBill>> selectByAttribute(Attribute attribute);
 
 }
